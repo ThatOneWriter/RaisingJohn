@@ -2,36 +2,22 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Johnny {
+
     private String imageFileName;
-    private BufferedImage image;
-    private boolean show;
 
-
-    public Johnny () {
-        this.imageFileName = "cardboardknife.png";
-        this.show = true;
-        this.image = readImage();
+    public Johnny() {
+        this.imageFileName = "images/cardboardknife.png";
     }
 
-    public BufferedImage getImage() {
-
-        return image;
+    public String getImageFileName() {
+        return imageFileName;
     }
 
-    public BufferedImage readImage() {
-        try {
-            BufferedImage image;
-            if (show) {
-                image = ImageIO.read(new File(imageFileName));
-            }
-            return null;
-        }
-        catch (IOException e) {
-            System.out.println(e);
-            return null;
-        }
-
+    public static ArrayList<Johnny> johnBoy() {
+        ArrayList<Johnny> john = new ArrayList<>();
+        return john;
     }
 }

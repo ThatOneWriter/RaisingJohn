@@ -10,9 +10,9 @@ public class Main {
         long speed = 200;
 
         Introduction.typewrittenIntro(message, speed);
-        
+
         MainFrame mainFrame = new MainFrame("Raising Johnny");
 
-        
+
     }
 }
