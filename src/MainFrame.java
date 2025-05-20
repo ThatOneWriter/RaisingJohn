@@ -4,6 +4,8 @@ public class MainFrame extends JFrame implements Runnable {
 
     private DrawPanel p;
     private Thread windowThread;
+    private JButton b;
+    private Johnny john;
 
     public MainFrame(String display) {
         super(display);
@@ -11,6 +13,7 @@ public class MainFrame extends JFrame implements Runnable {
         int frameWidth = 800;
         int frameHeight = 800;
         p = new DrawPanel();
+        john = new Johnny();
 
         this.addKeyListener(p);
         this.add(p);
@@ -22,8 +25,12 @@ public class MainFrame extends JFrame implements Runnable {
                 superhero high school. \n 
                 
                """);
-        panel.add(label);
+
+        b = new JButton();
+        b.setSize(100, 100);
+        this.add(label);
         this.add(panel);
+        this.add(b);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(frameWidth, frameHeight);
         this.setLocation(500, 10);
