@@ -18,19 +18,14 @@ public class MainFrame extends JFrame implements Runnable {
         this.addKeyListener(p);
         this.add(p);
         JPanel panel = new JPanel();
-        JLabel label = new JLabel( """
-                \n
-                You have been transported to an interactive story mode game where you the user
-                are a teacher trying to navigate their way working at an extremely elite \n
-                superhero high school. \n 
-                
-               """);
+        ImageIcon image = new ImageIcon("images/cardboardknife.png");
+        JLabel label = new JLabel(image);
 
         b = new JButton();
         b.setSize(100, 100);
         this.add(label);
         this.add(panel);
-        this.add(b);
+        panel.add(b);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(frameWidth, frameHeight);
         this.setLocation(500, 10);
