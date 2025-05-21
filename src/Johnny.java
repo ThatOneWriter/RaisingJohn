@@ -1,14 +1,14 @@
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Johnny {
 
     private String imageFileName;
+    private int j_xValue;
+    private int j_yValue;
 
     public Johnny() {
+        j_xValue = 0;
+        j_yValue = 0;
         this.imageFileName = "images/cardboardknife.png";
     }
 
@@ -16,8 +16,27 @@ public class Johnny {
         return imageFileName;
     }
 
-    public static ArrayList<Johnny> johnBoy() {
-        ArrayList<Johnny> john = new ArrayList<>();
-        return john;
+    public int getJ_xValue() {
+        return j_xValue;
+    }
+
+    public int getJ_yValue() {
+        return j_yValue;
+    }
+
+    public void moveUserRight(String right) {
+        j_xValue++;
+    }
+
+    public void moveUserLeft(String left) {
+        j_xValue--;
+    }
+
+    public void moveUserUpwards(String up) {
+        j_yValue++;
+    }
+
+    public void moveUserDownwards(String down) {
+        j_yValue--;
     }
 }
