@@ -1,19 +1,44 @@
-import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 
 public class Johnny {
 
-    private String imageFileName;
+    private final String imageFileName;
     private int j_xValue;
     private int j_yValue;
+    private BufferedImage image;
 
     public Johnny() {
         j_xValue = 0;
         j_yValue = 0;
-        this.imageFileName = "images/cardboardknife.png";
+        this.image = readImage();
+        this.imageFileName = "images/chicken.png";
     }
 
     public String getImageFileName() {
         return imageFileName;
+    }
+
+    public BufferedImage getImage() {
+        return image;
+    }
+
+
+    public BufferedImage readImage() {
+        try {
+            BufferedImage image;
+            image = ImageIO.read(new File(imageFileName));
+
+
+            return image;
+        }
+        catch (IOException e) {
+            System.out.println(e);
+            return null;
+        }
     }
 
     public int getJ_xValue() {
