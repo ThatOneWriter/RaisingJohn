@@ -35,3 +35,19 @@ public class MainFrame extends JFrame implements Runnable {
         }
     }
 }
+
+
+
+
+
+       // JLabel label = new JLabel();
+
+      //  try {
+           // File imageFile = new File("images/zoomer.png");
+          //  BufferedImage image = ImageIO.read(imageFile);
+          //  ImageIcon icon = new ImageIcon(image);
+          //  label.setIcon(icon);
+       // } catch (IOException e) {
+         //   e.printStackTrace();
+     //   }
+      
