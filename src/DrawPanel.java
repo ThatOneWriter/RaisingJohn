@@ -10,7 +10,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         super.paintComponent(g);
         this.addKeyListener(this);
         Johnny j = new Johnny();
-        g.drawImage(j.getImage(), j.getJ_xValue(), j.getJ_yValue(), this);
+        //g.drawImage(j.getImage(), j.getJ_xValue(), j.getJ_yValue(), this);
 
 
     }
