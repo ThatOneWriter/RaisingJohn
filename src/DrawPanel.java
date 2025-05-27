@@ -5,12 +5,24 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel implements KeyListener {
 
+    private Johnny johnny;
+
+    public DrawPanel() {
+        johnny = new Johnny();
+        this.addKeyListener(this);
+    }
 
     protected void paintComponent(Graphics g) {
+
         super.paintComponent(g);
-        this.addKeyListener(this);
-        Johnny j = new Johnny();
-        //g.drawImage(j.getImage(), j.getJ_xValue(), j.getJ_yValue(), this);
+
+        if (johnny.getImage() != null) {
+
+            g.drawImage(johnny.getImage(), johnny.getJ_xValue(), johnny.getJ_yValue(), this);
+
+        }
+
+
 
 
     }
@@ -22,18 +34,19 @@ public class DrawPanel extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //if (e.getKeyCode() == KeyEvent.VK_A) {
-            //j.moveUserLeft("left");
-        //}
-        //if (e.getKeyCode() == KeyEvent.VK_D) {
-           // j.moveUserRight("right");
-        //}
-        //if (e.getKeyCode() == KeyEvent.VK_W) {
-           // j.moveUserUpwards("up");
-       // }
-        //if (e.getKeyCode() == KeyEvent.VK_S) {
-           // j.moveUserDownwards("down");
-        //}
+        if (e.getKeyCode() == KeyEvent.VK_A) {
+            johnny.moveUserLeft("left");
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_D) {
+            johnny.moveUserRight("right");
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_W) {
+            johnny.moveUserUpwards("up");
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_S) {
+            johnny.moveUserDownwards("down");
+        }
+       repaint();
 
     }
 
