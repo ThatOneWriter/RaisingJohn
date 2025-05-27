@@ -4,7 +4,8 @@ public class MainFrame extends JFrame implements Runnable {
 
     private DrawPanel p;
     private Thread windowThread;
-    private JButton b;
+
+
 
 
     public MainFrame(String display) {
@@ -12,11 +13,14 @@ public class MainFrame extends JFrame implements Runnable {
         int frameWidth = 800;
         int frameHeight = 800;
         p = new DrawPanel();
-        JPanel panel = new JPanel();
-        b = new JButton();
-        this.add(panel);
-        panel.add(b);
+
+
+
+
+
         this.add(p);
+
+        this.pack();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(frameWidth, frameHeight);
         this.setLocation(500, 10);
@@ -35,19 +39,3 @@ public class MainFrame extends JFrame implements Runnable {
         }
     }
 }
-
-
-
-
-
-       // JLabel label = new JLabel();
-
-      //  try {
-           // File imageFile = new File("images/zoomer.png");
-          //  BufferedImage image = ImageIO.read(imageFile);
-          //  ImageIcon icon = new ImageIcon(image);
-          //  label.setIcon(icon);
-       // } catch (IOException e) {
-         //   e.printStackTrace();
-     //   }
-      
