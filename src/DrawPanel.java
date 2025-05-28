@@ -27,6 +27,9 @@ public class DrawPanel extends JPanel implements KeyListener {
 
     }
 
+    private void dragImage(JLayeredPane layeredPane, String imagePath, int x, int y) {
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
