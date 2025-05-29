@@ -12,10 +12,11 @@ public class Johnny {
 
 
     public Johnny() {
-        j_xValue = 0;
-        j_yValue = 0;
+        j_xValue = 1000;
+        j_yValue = 500;
         this.imageFileName = "images/chicken.png";
         getImageFile();
+
     }
 
     public void getImageFile() {
@@ -45,7 +46,7 @@ public class Johnny {
     }
 
     public void moveUserRight(String right) {
-        j_xValue+=10;
+
     }
 
     public void moveUserLeft(String left) {
