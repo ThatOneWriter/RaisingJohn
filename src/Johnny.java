@@ -13,6 +13,7 @@ public class Johnny {
     private int j_yValue;
     private String deadImage;
     private boolean isDead;
+    private boolean isAlive;
     private Rectangle hitBox;
 
 
@@ -22,6 +23,7 @@ public class Johnny {
         this.imageFileName = "images/chicken.png";
         this.deadImage = "images/cardboardknife.png";
         this.isDead = false;
+        this.isAlive = true;
         this.hitBox = new Rectangle(-100, -100, 200, 281);
         getImageFile();
 
@@ -29,12 +31,14 @@ public class Johnny {
 
     public BufferedImage getImageFile() {
         try {
-            File imageFile = new File(imageFileName);
-            image = ImageIO.read(imageFile);
-
             if (isDead) {
                 File image = new File(deadImage);
                 this.image = ImageIO.read(image);
+            }
+
+            if (isAlive) {
+                File i = new File(imageFileName);
+                image = ImageIO.read(i);
             }
             return image;
 
@@ -53,7 +57,14 @@ public class Johnny {
     }
 
     public void isDead() {
+        isAlive = false;
         isDead = true;
+        this.image = getImageFile();
+    }
+
+    public void isAlive() {
+        isDead = false;
+        isAlive = true;
         this.image = getImageFile();
     }
 
