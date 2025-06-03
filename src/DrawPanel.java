@@ -42,24 +42,36 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
         g.setFont(new Font("Monospaced Bold", Font.BOLD, 20));
         g.drawString("Don't click me", 150, 120);
 
-        int x = 200;
-        int y = 200;
+        int x = 400;
+        int y = 300;
 
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.BLUE);
 
         for (int columns = 0; columns < 20; columns++) {
             for (int rows = 0; rows < 10; rows++) {
-                g.drawRect(x, y, 20, 20);
-                if (grid[rows][columns]) {
-                    g2.setColor(Color.RED);
-                    g2.fillRect(x, y, 20, 20);
-                    g2.setColor(Color.BLACK);
+
+                if (columns == 10 && rows < 8) {
+                g2.setColor(Color.RED);
+                g2.fillRect(x, y, 20, 20);
                 }
+
+                if (columns > 10 && rows == 9) {
+                    g2.setColor(Color.MAGENTA);
+                    g2.fillRect(x, y, 20, 20);
+                }
+
+                if (columns == 17 && rows < 2) {
+                    g2.setColor(Color.ORANGE);
+                    g2.fillRect(x, y, 20, 20);
+                }
+
+                g.drawRect(x, y, 20, 20);
+                g2.setColor(Color.BLUE);
                 y += 25;
             }
             x += 25;
-            y = 10;
+            y = 300;
 
         }
     }
@@ -133,15 +145,23 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
     public void mousePressed(MouseEvent e) {
 
         Point clicked = e.getPoint();
+        //System.out.print(e); to find how to get the click count
+        //System.out.print(e.getPoint());
+        //System.out.println(e.getButton());
+        //System.out.println(e.getClickCount());
 
-
-        if (e.getButton() == 1) {
+        if (e.getClickCount() % 2 == 1) {
 
             if (button.contains(clicked)) {
                johnny.isDead();
             }
+        }
 
+        if (e.getClickCount() % 2 == 0) {
 
+            if (button.contains(clicked)) {
+                johnny.isAlive();
+            }
         }
     }
 
