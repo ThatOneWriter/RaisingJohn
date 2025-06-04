@@ -76,20 +76,22 @@ public class Johnny {
         return j_yValue;
     }
 
-    public void moveUserRight(String right) {
+    public int moveUserRight(String right) {
 
+        return j_xValue +10;
     }
 
-    public void moveUserLeft(String left) {
-        j_xValue-=10;
+    public int moveUserLeft(String left) {
+
+        return j_xValue -10;
     }
 
-    public void moveUserUpwards(String up) {
-        j_yValue+=10;
+    public int moveUserUpwards(String up) {
+        return j_yValue+=10;
     }
 
-    public void moveUserDownwards(String down) {
-        j_yValue-=10;
+    public int moveUserDownwards(String down) {
+        return j_yValue-=10;
     }
 
     public void setHitBox(int jXValue, int jYValue) {
