@@ -11,7 +11,9 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
     private ComputerBackground computer;
     private Rectangle button;
 
-    private boolean[][] grid;
+
+
+    private Color[][] grid;
 
     public DrawPanel() {
         johnny = new Johnny();
@@ -20,13 +22,15 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
         this.addKeyListener(this);
         this.addMouseListener(this);
 
-        this.grid = new boolean[10][20];
+        this.grid = new Color[10][20];
 
     }
 
     protected void paintComponent(Graphics g) {
 
         super.paintComponent(g);
+
+
         if (computer.getBackgroundImage() != null) {
 
             g.drawImage(computer.getBackgroundImage().getScaledInstance(900, 500, Image.SCALE_SMOOTH), 200, 200, this);
@@ -46,12 +50,12 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
         int y = 300;
 
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLUE);
+        g2.setColor(Color.PINK);
 
-        for (int columns = 0; columns < 20; columns++) {
-            for (int rows = 0; rows < 10; rows++) {
+        for (int columns = 0; columns < grid[0].length; columns++) {
+            for (int rows = 0; rows < grid.length; rows++) {
 
-                if (columns == 10 && rows < 8) {
+                if (columns > 10 && rows < 8) {
                 g2.setColor(Color.RED);
                 g2.fillRect(x, y, 20, 20);
                 }
@@ -61,13 +65,32 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
                     g2.fillRect(x, y, 20, 20);
                 }
 
-                if (columns == 17 && rows < 2) {
+                if (columns > 17 && rows < 2) {
                     g2.setColor(Color.ORANGE);
                     g2.fillRect(x, y, 20, 20);
                 }
 
+                if (columns == 5 && rows > 2) {
+                    g2.setColor(Color.ORANGE);
+                    g2.fillRect(x, y, 20, 20);
+                }
+
+                if (columns < 3 && rows > 4) {
+                    g2.setColor(Color.YELLOW);
+                    g2.fillRect(x, y, 20, 20);
+                }
+
+                if (columns == 6 && rows > 2) {
+
+                    g2.setColor(Color.GREEN);
+                    g2.fillRect(x, y, 20, 20);
+                }
+
                 g.drawRect(x, y, 20, 20);
+                g2.fillRect(x, y, 20, 20);
                 g2.setColor(Color.BLUE);
+
+
                 y += 25;
             }
             x += 25;
@@ -78,54 +101,23 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_A) {
-            move(-johnny.getJ_xValue(), 0);
-            System.out.print("Moving left");
-            johnny.moveUserLeft("left");
-
-        }
-        else if (e.getKeyCode() == KeyEvent.VK_D) {
-            move(+johnny.getJ_xValue(), 0);
-            System.out.print("Moving right");
-            johnny.moveUserRight("right");
-        }
-        else if (e.getKeyCode() == KeyEvent.VK_W) {
-            move(+johnny.getJ_xValue(), 0);
-            System.out.print("Moving up");
-            johnny.moveUserUpwards("up");
-        }
-        else if (e.getKeyCode() == KeyEvent.VK_S) {
-            move(-johnny.getJ_yValue(), 0);
-            System.out.print("Moving down");
-            johnny.moveUserDownwards("down");
-        }
-        repaint();
-
-
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A) {
-            move(-johnny.getJ_xValue(), 0);
-            System.out.print("Moving left");
-            johnny.moveUserLeft("left");
+            johnny.setHitBox(johnny.moveUserLeft("left"), johnny.getJ_yValue());
 
         }
-        else if (e.getKeyCode() == KeyEvent.VK_D) {
-            move(+johnny.getJ_xValue(), 0);
-            System.out.print("Moving right");
-            johnny.moveUserRight("right");
+        if (e.getKeyCode() == KeyEvent.VK_D) {
+            johnny.setHitBox(johnny.moveUserRight("right"), johnny.getJ_yValue());
+
         }
-        else if (e.getKeyCode() == KeyEvent.VK_W) {
-            move(+johnny.getJ_xValue(), 0);
-            System.out.print("Moving up");
-            johnny.moveUserUpwards("up");
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            johnny.setHitBox(johnny.getJ_xValue(), johnny.moveUserUpwards("up"));
         }
-        else if (e.getKeyCode() == KeyEvent.VK_S) {
-            move(-johnny.getJ_yValue(), 0);
-            System.out.print("Moving down");
-            johnny.moveUserDownwards("down");
+        if (e.getKeyCode() == KeyEvent.VK_S) {
+            johnny.setHitBox(johnny.getJ_xValue(), johnny.moveUserDownwards("down"));
         }
        repaint();
 
