@@ -87,14 +87,17 @@ public class Johnny {
     }
 
     public int moveUserUpwards(String up) {
+
         return j_yValue+=10;
     }
 
     public int moveUserDownwards(String down) {
+
         return j_yValue-=10;
     }
 
     public void setHitBox(int jXValue, int jYValue) {
+
         hitBox.setLocation(jXValue, jYValue);
     }
 }
