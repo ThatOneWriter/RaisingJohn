@@ -78,12 +78,12 @@ public class Johnny {
 
     public int moveUserRight(String right) {
 
-        return j_xValue +10;
+        return j_xValue+=10;
     }
 
     public int moveUserLeft(String left) {
 
-        return j_xValue -10;
+        return j_xValue-=10;
     }
 
     public int moveUserUpwards(String up) {
