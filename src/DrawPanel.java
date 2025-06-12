@@ -106,19 +106,22 @@ public class DrawPanel extends JPanel implements KeyListener, MouseListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A) {
-
-            setLocation(johnny.moveUserLeft("left") - 10, johnny.getJ_yValue());
+            johnny.moveUserLeft("left");
+            setLocation(johnny.getJ_xValue(), johnny.getJ_yValue());
 
         }
         if (e.getKeyCode() == KeyEvent.VK_D) {
-            setLocation(johnny.moveUserRight("right") + 10, johnny.getJ_yValue());
+            johnny.moveUserRight("right");
+            setLocation(johnny.getJ_xValue(), johnny.getJ_yValue());
 
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
-            setLocation(johnny.getJ_xValue(), johnny.moveUserUpwards("up") + 10);
+            johnny.moveUserUpwards("up");
+            setLocation(johnny.getJ_xValue(), johnny.getJ_yValue());
         }
         if (e.getKeyCode() == KeyEvent.VK_S) {
-            setLocation(johnny.getJ_xValue(), johnny.moveUserDownwards("down") - 10);
+            johnny.moveUserDownwards("down");
+            setLocation(johnny.getJ_xValue(), johnny.getJ_yValue());
         }
        repaint();
 
